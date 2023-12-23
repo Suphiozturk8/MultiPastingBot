@@ -72,10 +72,28 @@ async def paste_(event):
             "**Yapıştırma başarısız oldu!**\n**Lütfen paste hizmetini değiştirmeyi deneyin.**"
         )
     await paste_msg.edit(
-        f"**[{p_service.capitalize()}]({pasted}) servisine yapıştırıldı!**\n\n**Url:** `{pasted}`",
+        f"**{p_service.capitalize()} servisine yapıştırıldı!**\n\n**Url:** `{pasted}`",
+        buttons=p_buttons(p_service, pasted),
         link_preview=True
     )
     log.info(pasted)
+
+
+def p_buttons(p_service, pasted):
+    return [
+        [
+            Button.url(
+                f"{p_service.capitalize()}",
+                url=f"{pasted}"
+            )
+        ],
+        [
+            Button.url(
+                f"Paylaş",
+                url=f"https://telegram.me/share/url?url={pasted}"
+            )
+        ]
+    ]
 
 
 @client.on(events.NewMessage(pattern="^/start$"))
