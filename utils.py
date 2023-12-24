@@ -130,7 +130,7 @@ class Paste:
             }
             resp = await btbnc.post(
                 self.batbin_api,
-                content=text,
+                json=dict(content=text),
                 **create_config
             )
             chck = await self.check_status(
