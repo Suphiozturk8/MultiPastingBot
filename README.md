@@ -10,6 +10,10 @@ This Telegram bot is designed to make it easy to share pieces of text or code. T
 2. The bot processes the given content with the selected paste service and generates a shareable link.
 3. You can take the generated link and share it as you wish.
 
+## Active Bot
+Example of MultiPastingBot, founded by [Mert{🐈}](https://t.me/theliec), running as [Paste Code All in One](https://t.me/codepasterobot).
+Thank you [Mert](https://github.com/fswair) ❤️
+
 ## Usage
 1. Sending text or files with the default paste service:
     - `/paste` (spaceb.in)
