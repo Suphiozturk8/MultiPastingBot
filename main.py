@@ -1,7 +1,8 @@
 
-import os, logging, tempfile
-from telethon import *
-from telethon.tl.types import *
+import os
+import logging
+import tempfile
+from telethon import TelegramClient, events, Button
 
 from utils import Paste, pastebin_service, get_arg
 from config import (
@@ -14,11 +15,12 @@ from config import (
 )
 
 logging.basicConfig(
-    level = logging.INFO,
-    format = "[%(levelname)s] %(asctime)s - %(message)s")
+    level=logging.INFO,
+    format="[%(levelname)s] %(asctime)s - %(message)s"
+)
 log = logging.getLogger("TelethonSnippets")
 
-log.info("Bot Bağlanıyor...")
+log.info("Bot Connecting...")
 try:
     client = TelegramClient(
         NAME,
@@ -32,14 +34,14 @@ except BaseException as e:
 
 @client.on(
     events.NewMessage(
-        pattern=r"^[.?!/₺#@](paste|nekobin|dpaste|spacepin|pasty|centos)"
+        pattern=r"^[.?!/₺#@](paste|nekobin|dpaste|spacebin|pasty|centos|batbin)"
     )
 )
 async def paste_(event):
     p_service = await pastebin_service(event.raw_text.split(" ")[0])
     paste_msg = await event.client.send_message(
         event.chat_id,
-        f"**{p_service.capitalize()} konumuna yapıştrılıyor...**"
+        f"**Pasting into {p_service.capitalize()} service...**"
     )
     replied_msg = await event.get_reply_message()
     txt = get_arg(event)
@@ -47,7 +49,7 @@ async def paste_(event):
     if not txt:
         if not replied_msg:
             return await paste_msg.edit(
-                "**Lütfen bir metni yada dosyayı yanıtlayın.**"
+                "**Please reply to a text or file.**"
             )
         if replied_msg.file:
             temp_dir = tempfile.mkdtemp()
@@ -69,10 +71,17 @@ async def paste_(event):
     )
     if not pasted:
         return await paste_msg.edit(
-            "**Yapıştırma başarısız oldu!**\n**Lütfen paste hizmetini değiştirmeyi deneyin.**"
+            """
+**Paste failed!**
+**Please try changing the paste service.**
+            """
         )
     await paste_msg.edit(
-        f"**{p_service.capitalize()} servisine yapıştırıldı!**\n\n**Url:** `{pasted}`",
+        f"""
+**Pasted to {p_service.capitalize()} service!**
+
+**Url:** `{pasted}`
+        """,
         buttons=p_buttons(p_service, pasted),
         link_preview=True
     )
@@ -89,7 +98,7 @@ def p_buttons(p_service, pasted):
         ],
         [
             Button.url(
-                f"Paylaş",
+                "Share",
                 url=f"https://telegram.me/share/url?url={pasted}"
             )
         ]
@@ -113,5 +122,5 @@ async def help(event):
     )
 
 
-log.info("Bot Aktif ✓")
+log.info("Bot Active ✓")
 client.run_until_disconnected()

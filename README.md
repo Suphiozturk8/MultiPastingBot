@@ -1,30 +1,31 @@
 
 # MultiPastingBot
 
-## Genel Bakış
-Bu Telegram botu, metin veya kod parçalarını paylaşmayı kolaylaştırmak için tasarlanmıştır. Bot, çeşitli hizmetler aracılığıyla metinleri yapıştırma (paste) işlemine tabi tutar ve paylaşılabilir bağlantılar oluşturur.
+## Overview
+This Telegram bot is designed to make it easy to share pieces of text or code. The bot will paste text through various services and generate shareable links.
 
-## Özellikler
-1. Metin veya kod parçacığını paylaşmak için ilgili komutları kullanabilirsiniz.
-    - Örneğin: `/paste <metin veya dosya_yanıtlama>`.
-2. Bot, verilen içeriği seçilen yapıştırma hizmeti ile işleyerek paylaşılabilir bir bağlantı üretir.
-3. Oluşturulan bağlantıyı alıp istediğiniz gibi paylaşabilirsiniz.
+## Features
+1. You can use the corresponding commands to share a snippet of text or code.
+    - For example: `/paste <text or reply_file>`.
+2. The bot processes the given content with the selected paste service and generates a shareable link.
+3. You can take the generated link and share it as you wish.
 
-## Kullanım
-1. Varsayılan yapıştırma hizmeti ile metin veya dosya gönderme:
+## Usage
+1. Sending text or files with the default paste service:
     - `/paste` (spaceb.in)
-2. Farklı yapıştırma hizmetlerini kullanma seçenekleri:
+2. Options to use different pasting services:
     - `/nekobin` (nekobin.com)
     - `/dpaste` (dpaste.org)
     - `/spacebin` (spaceb.in)
     - `/pasty` (pasty.lus.pm)
     - `/centos` (paste.centos.org)
+    - `/batbin` (batbin.me)
 
-## Kurulum
-1. Depoyu klonlayın: `git clone https://github.com/suphiozturk8/MultiPastingBot.git && cd MultiPastingBot`
-2. Bağımlılıkları yükleyin: `pip install -r requirements.txt`
-3. Telegram bot tokenınızı `config.py` dosyasında ayarlayın.
-4. Botu çalıştırın: `python main.py`
+## Installation
+1. Clone the repository: `git clone https://github.com/suphiozturk8/MultiPastingBot.git && cd MultiPastingBot`
+2. Install the dependencies: `pip install -r requirements.txt`
+3. Set your Telegram bot token in the `config.py` file.
+4. Run the bot: `python main.py`
 
-## Lisans
-Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
+## Licence
+This project is licensed under the [MIT Licence](LICENSE).

@@ -1,6 +1,7 @@
-import asyncio
+
 import unittest
 from utils import Paste
+
 
 class TestPasteServices(unittest.IsolatedAsyncioTestCase):
     async def test_nekobin_paste(self):
@@ -32,7 +33,13 @@ class TestPasteServices(unittest.IsolatedAsyncioTestCase):
         text = "Test text for Centos"
         result = await paste.paste_to_centos(text)
         self.assertIsNotNone(result)
+    
+    async def test_centos_paste(self):
+        paste = Paste()
+        text = "Test text for Batbin"
+        result = await paste.paste_to_batbin(text)
+        self.assertIsNotNone(result)
+
 
 if __name__ == '__main__':
     unittest.main()
-    

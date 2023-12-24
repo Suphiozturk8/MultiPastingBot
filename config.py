@@ -5,34 +5,34 @@ API_HASH = ""
 BOT_TOKEN = ""
 
 START_MESSAGE = """
-**Merhaba {}**
-**Ben bir paste (metin paylaşımı) botuyum.**
-**Sana metin veya kod parçacıklarını paylaşmanı kolaylaştırabilirim.**
+**Hello {}**
+**I am a paste (text sharing) bot.**
+**I can make it easy for you to share snippets of text or code.**
 
-**Yapabileceğim bazı şeyler:**
-    - Metin veya kod parçacığını paylaşmak için /paste komutunu kullanabilirsin.
-    - Yardım veya daha fazla bilgi için /help komutunu kullanabilirsin.
-
-Nasıl yardımcı olabilirim?
+**Some of the things I can do:**
+    - You can use the /paste command to share your text or code snippet.
+    - For help or more information, you can use the /help command.
 """
 
 HELP_MESSAGE = """
-**İşte bu paste botunun nasıl kullanılacağı hakkında bazı yardımcı bilgiler:**
+**Here is some helpful information on how to use this paste bot:**
 
-**Metin veya Kod Paylaşma:**
-- Bir metin veya kod parçacığını paylaşmak için aşağıdaki komutlardan birini kullanabilirsiniz:
-    - /paste (varsayılan paste hizmeti)
-    - /nekobin (nekobin hizmeti)
-    - /dpaste (dpaste hizmeti)
-    - /spacepin (spacepin hizmeti)
-    - /pasty (pasty.lus hizmeti)
-    - /centos (centOS hizmeti)
+**Sharing Text or Code:**
+- To share a snippet of text or code, you can use one of the following commands
+    - /paste (default paste service)
+    - /nekobin (nekobin service)
+    - /dpaste (dpaste service)
+    - /spacebin (spacebin service)
+    - /pasty (pasty.lus service)
+    - /centos (centOS service)
+    - /batbin (batbin service)
 
-Örneğin, /paste komutunu kullanarak metni gönderin veya bir metin yada kod dosyasını yanıtlayın. Ben size bir paylaşım bağlantısı oluşturacağım.
+For example, send text using the /paste command or reply to a text or script file. I will create a sharing link for you.
 
-**Kullanım Şekli:**
-    /paste <metin - dosyayı_yanıtla>
+**Usage:**
+    - /paste <text or reply_file>
 
-**Yardım:**
-    - /help komutunu kullanarak bu yardım mesajını her zaman görebilirsiniz.
+**Help:**
+    - Use the /help command to send this help message
+ you can always see it.
 """
